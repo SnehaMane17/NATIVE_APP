@@ -1,4 +1,3 @@
-// src/utils/roleUtils.js
 
 /**
  * Check if the user has the admin role.

@@ -2,8 +2,6 @@
 import React, { useContext } from 'react';
 import { View, Text, Button } from 'react-native';
 import { AuthContext } from '../contexts/AuthContext';
-import AdminUpload from '../components/AdminUpload';
-import PDFList from '../components/PDFList';
 
 const AdminScreen = () => {
     const { canUploadPDFsForCurrentUser } = useContext(AuthContext);
@@ -11,8 +9,8 @@ const AdminScreen = () => {
     return (
         <View>
             <Text>Admin Screen</Text>
-            {canUploadPDFsForCurrentUser() && <AdminUpload />}
-            <PDFList />
+            {canUploadPDFsForCurrentUser() && <Text>Admin upload</Text>}
+
         </View>
     );
 };
