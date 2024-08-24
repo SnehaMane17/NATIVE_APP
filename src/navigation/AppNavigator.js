@@ -1,13 +1,13 @@
 // src/navigation/AppNavigator.js
 import React, { useContext } from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import { AuthContext } from '../contexts/AuthContext';
 import LoginScreen from '../screens/LoginScreen';
 import AdminScreen from '../screens/AdminScreen';
 import UserScreen from '../screens/UserScreen';
 import { canAccessAdminFeatures } from '../utils/roleUtils';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 const AppNavigator = () => {
     const { role, isAuthenticated, loading } = useContext(AuthContext);
@@ -17,6 +17,7 @@ const AppNavigator = () => {
     }
 
     return (
+       
         <Stack.Navigator>
             {!isAuthenticated ? (
                 <Stack.Screen name="Login" component={LoginScreen} />
@@ -26,6 +27,7 @@ const AppNavigator = () => {
                 <Stack.Screen name="User" component={UserScreen} />
             )}
         </Stack.Navigator>
+       
     );
 };
 
